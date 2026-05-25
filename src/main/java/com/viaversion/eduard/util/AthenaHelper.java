@@ -32,10 +32,11 @@ public class AthenaHelper {
         }
 
         UnicodeEmoji containsVia = athenaData.get("containsVia").getAsBoolean() ? CHECKMARK : CROSSMARK;
+        String footer = "Platform: " + athenaData.getAsJsonObject("platform").get("type").getAsString() + "  •  Contains ViaVersion: " + containsVia.getFormatted();
         EmbedBuilder embedBuilder = new EmbedBuilder()
             .setColor(0x5858ff)
             .setAuthor("Athena", "https://github.com/Jo0001/Athena")
-            .setFooter("Contains ViaVersion " + containsVia.getFormatted());
+            .setFooter(footer);
 
         if (match != null) {
             embedBuilder.setTitle("Log Analysis for " + match, match);
